@@ -4,6 +4,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\BookingsController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -12,6 +13,13 @@ Route::get('/user', function (Request $request) {
 Route::get('/healthcheck',function(){
     return response()->json(['message'=>'API is running']);
 });
+
+
+//  *****************************************
+// USERS ****************************************
+// *************************************************
+
+
 
 // get all users
 Route::get('/users',[UsersController::class,'getUsers']);
@@ -23,3 +31,12 @@ Route::post('/create-user', [UsersController::class, 'createUser']);
 Route::put('/update-user/{id}', [UsersController::class, 'updateUser']);
 // delete user
 Route::delete('/delete-user/{id}', [UsersController::class, 'deleteUser']);
+
+
+
+
+//  *****************************************
+// BOOKINGS ****************************************
+// *************************************************
+// get all bookings
+Route::get('/bookings',[BookingsController::class,'getAllbookings']);
